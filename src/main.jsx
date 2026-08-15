@@ -15,20 +15,20 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       locale={zhCN}
       theme={{
         token: {
-          colorPrimary: '#C2682E',
-          colorLink: '#C2682E',
-          borderRadius: 8,
+          colorPrimary: '#0052D9',
+          colorLink: '#0052D9',
+          borderRadius: 6,
           fontSize: 14,
-          colorBgLayout: '#f6f4f1',
-          controlHeight: 34,
-          boxShadowSecondary: '0 6px 20px rgba(60, 40, 20, 0.10)',
+          colorBgLayout: '#f3f4f7',
+          controlHeight: 32,
+          boxShadowSecondary: '0 4px 16px rgba(15, 30, 70, 0.08)',
           colorTextHeading: 'rgba(0, 0, 0, 0.88)',
         },
         components: {
-          Card: { borderRadiusLG: 12 },
-          Table: { headerBg: '#faf8f5', headerColor: 'rgba(0,0,0,0.65)', rowHoverBg: '#fbf4ee' },
-          Menu: { itemBg: 'transparent', itemSelectedBg: 'rgba(194, 104, 46, 0.16)', itemSelectedColor: '#E89B5C' },
-          Tabs: { inkBarColor: '#C2682E', itemSelectedColor: '#C2682E', itemColor: 'rgba(0,0,0,0.65)' },
+          Card: { borderRadiusLG: 8 },
+          Table: { headerBg: '#f7f8fa', headerColor: 'rgba(0,0,0,0.65)', rowHoverBg: '#f2f6ff', headerSplitColor: 'transparent' },
+          Menu: { itemBg: 'transparent', itemSelectedBg: 'rgba(0,82,217,0.08)', itemSelectedColor: '#0052D9', itemHoverBg: 'rgba(0,82,217,0.05)' },
+          Tabs: { inkBarColor: '#0052D9', itemSelectedColor: '#0052D9', itemColor: 'rgba(0,0,0,0.65)' },
         },
       }}
     >

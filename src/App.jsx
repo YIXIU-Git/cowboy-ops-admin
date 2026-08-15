@@ -132,7 +132,6 @@ export default function App() {
           <div className="app-logo-title">疯狂牛仔城_运营管理系统</div>
         </div>
         <Menu
-          theme="dark"
           mode="inline"
           defaultSelectedKeys={['page']}
           items={[
@@ -151,10 +150,10 @@ export default function App() {
             <Tag color="blue">V2.1</Tag>
           </Space>
           <Space size={12}>
-            <Badge count={logs.length} showZero color="#C2682E" />
+            <Badge count={logs.length} showZero color="#0052D9" />
             <Typography.Text type="secondary">操作日志：{logs.length} 条</Typography.Text>
             <Divider type="vertical" style={{ height: 20 }} />
-            <Avatar style={{ backgroundColor: '#C2682E', verticalAlign: 'middle' }} size="small">
+            <Avatar style={{ backgroundColor: '#0052D9', verticalAlign: 'middle' }} size="small">
               运
             </Avatar>
             <Typography.Text strong>当前运营</Typography.Text>
