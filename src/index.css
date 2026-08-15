@@ -1,0 +1,585 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  background: #f0f2f5;
+}
+
+.app-layout {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.app-sider {
+  background: #fff;
+  border-right: 1px solid rgba(5, 5, 5, 0.06);
+}
+
+.app-header {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(5, 5, 5, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-logo {
+  padding: 16px 16px 8px;
+  line-height: 1.4;
+}
+
+.app-logo-title {
+  color: rgba(0, 0, 0, 0.88);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.app-logo-sub {
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.drag-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+}
+
+.drag-item.dragging {
+  opacity: 0.4;
+}
+
+.drag-handle {
+  color: #999;
+  margin-right: 8px;
+}
+
+.fill-preview {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 12px;
+  margin-top: 8px;
+}
+
+.fill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px dashed #eee;
+}
+
+.fill-row:last-child {
+  border-bottom: none;
+}
+
+.fill-tag-manual {
+  color: #1677ff;
+  font-weight: 600;
+}
+
+.fill-tag-auto {
+  color: #8c8c8c;
+  font-weight: 600;
+}
+
+.store-tag {
+  margin-bottom: 4px;
+}
+
+/* ===== C端展示样式配置（Drawer 内） ===== */
+.disp-row {
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.disp-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.disp-row-name {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.disp-row-price {
+  color: #1677ff;
+  font-size: 12px;
+}
+
+.disp-icon-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+}
+
+.disp-row-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.disp-row-controls:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.disp-sub-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.disp-hide-toggle {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* ===== Drawer 两栏布局 ===== */
+.drawer-layout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.drawer-col-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.drawer-col-right {
+  flex: 0 0 320px;
+  width: 320px;
+}
+
+.drawer-preview {
+  position: sticky;
+  top: 0;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.drawer-preview-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.drawer-preview-tip {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.drawer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.drawer-footer-hint {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* ===== C端手机预览 ===== */
+.cside-phone {
+  background: linear-gradient(180deg, #f6f8fc 0%, #eef1f7 100%);
+  border: 1px solid #e5e8ef;
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.cside-screen {
+  width: 100%;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.cside-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.88);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cside-title-badge {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 1px 8px;
+}
+
+.cside-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.cside-list::-webkit-scrollbar {
+  display: none;
+}
+
+.cside-row {
+  position: relative;
+  flex: 0 0 calc(50% - 5px);
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  scroll-snap-align: start;
+  min-height: 110px;
+  overflow: hidden;
+}
+
+.cside-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 4px 7px;
+  border-radius: 0 9px 0 9px;
+  letter-spacing: 0.5px;
+}
+
+.cside-row.invalid {
+  opacity: 0.55;
+}
+
+.cside-row-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.cside-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #e6f4ff;
+  color: #1677ff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cside-name {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.cside-auto-tag {
+  transform: scale(0.8);
+  transform-origin: left center;
+}
+
+.cside-sub {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  line-height: 1.3;
+}
+
+.cside-price {
+  font-size: 13px;
+  color: #1677ff;
+  font-weight: 600;
+}
+
+/* ===== 商品主图卡片（商品模块 C端预览） ===== */
+.cside-card-img {
+  position: relative;
+  flex: 0 0 158px;
+  width: 158px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  scroll-snap-align: start;
+}
+/* 不展示信息时：整张卡片按 1:1 展示主图 */
+.cside-card-img.no-meta {
+  flex: 0 0 158px;
+  height: 158px;
+}
+.cside-card-img.no-meta .cside-card-img-box {
+  height: 100%;
+  flex: 1 1 auto;
+}
+.cside-card-img-box {
+  position: relative;
+  height: 126px;
+  width: 100%;
+  background: #f5f5f5;
+  flex: 0 0 126px;
+}
+.cside-card-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cside-card-img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 56px;
+  background: linear-gradient(135deg, #e6f4ff, #f0f5ff);
+}
+.cside-card-img .cside-badge {
+  border-radius: 0 0 0 10px;
+  top: 0;
+  right: 0;
+}
+.cside-card-invalid {
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  font-size: 10px;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+}
+.cside-card-img.invalid {
+  opacity: 0.6;
+}
+.cside-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 8px 10px 10px;
+}
+.cside-card-meta .cside-name {
+  font-size: 13px;
+  line-height: 1.3;
+}
+.cside-card-meta .cside-price {
+  color: #fa541c;
+  font-size: 12px;
+}
+
+/* ===== 活动入口卡片（活动/大厅 C端预览） ===== */
+.cside-list.act-list {
+  padding: 12px;
+}
+.cside-act-card {
+  position: relative;
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.cside-act-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.cside-act-badge {
+  position: static;
+  align-self: flex-start;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.cside-act-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.cside-act-sub {
+  font-size: 12px;
+  opacity: 0.92;
+  line-height: 1.3;
+}
+.cside-act-img-box {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.cside-act-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.cside-act-card.image-mode {
+  padding: 0;
+  background: #f5f5f5;
+}
+.cside-act-img-full {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+/* 活动大厅：纵向卡片列表 */
+.cside-act-vlist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+.cside-act-card.empty-placeholder {
+  height: 56px;
+  flex: 0 0 56px;
+  border: 1px dashed #d9d9d9;
+  background: #fafafa;
+  justify-content: center;
+  align-items: center;
+}
+/* 当前编辑项高亮 */
+.cside-act-card.editing {
+  outline: 2px solid #1677ff;
+  outline-offset: 2px;
+}
+.cside-act-editing-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  background: #1677ff;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+/* 活动卡片对外展示统计（参与人数 / 中奖人数） */
+.cside-act-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+.cside-act-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 2px 7px;
+  border-radius: 10px;
+  line-height: 1.4;
+}
+.cside-act-stat-val {
+  font-size: 12px;
+  font-weight: 700;
+}
+.cside-act-stat-label {
+  font-size: 10px;
+  opacity: 0.85;
+}
+/* 纯图片模式下的底部浮层统计 */
+.cside-act-stats.overlay {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  margin-top: 0;
+  z-index: 1;
+}
+.cside-act-stats.overlay .cside-act-stat {
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+}
+
+.cside-empty {
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 13px;
+}
